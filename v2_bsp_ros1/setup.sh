@@ -38,7 +38,7 @@ echo -n "."
 tmp=$(ps aux | grep unattended-upgrade | grep -v unattended-upgrade-shutdown | grep python | wc -l)
 done
 
-git clone https://github.com/hdumcke/esp32-tests.git mini_pupper_bsp
+git clone -b mini_pupper_2 https://github.com/mangdangroboticsclub/mini_pupper_bsp.git
 git clone https://github.com/Tiryoh/ros_setup_scripts_ubuntu.git
 sudo apt-get update
 sudo apt-get -y install python3 python3-pip python-is-python3 python3-venv python3-virtualenv
