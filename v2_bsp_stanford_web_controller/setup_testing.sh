@@ -30,7 +30,7 @@ then
 fi
 
 cd ~
-git clone https://github.com/mangdangroboticsclub/mini_pupper_bsp.git
+git clone -b mini_pupper_2 https://github.com/mangdangroboticsclub/mini_pupper_bsp.git
 git clone https://github.com/mangdangroboticsclub/StanfordQuadruped.git
 git clone https://github.com/mangdangroboticsclub/mini_pupper_web_controller.git
 sudo apt-get update
