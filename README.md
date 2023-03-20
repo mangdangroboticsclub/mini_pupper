@@ -37,9 +37,13 @@ Boot Mini Pupper with your SD card, configure the network, clone this repository
 
 Clone this repository on the PC where you have created your SD card. Make sure the SD card is mounted. Run
 
+```
 prepare_sd.py
+```
 
 And answer the questions. At the end eject your SD card, stick it into Mini Pupper, boot Mini Pupper and wait until the IP address is shown on the LCD.
+
+If you are using Windows, run `prepare_sd.bat` instead of `prepare_sd.py`.
 
 ### Hosted by MangDang
 
