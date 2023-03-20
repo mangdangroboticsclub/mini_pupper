@@ -42,7 +42,7 @@ done
 [ -d "./ros_setup_scripts_ubuntu" ] || git clone https://github.com/Tiryoh/ros_setup_scripts_ubuntu.git
 sudo apt-get update
 sudo apt-get -y install python3 python3-pip python-is-python3 python3-venv python3-virtualenv
-sudo pip install -e ~/mini_pupper_bsp/mock_api
+sudo PBR_VERSION=$(cd ~/mini_pupper_bsp; ./get-version.sh) pip install ~/mini_pupper_bsp/mock_api
 ~/ros_setup_scripts_ubuntu/ros-noetic-ros-base-main.sh
 sudo apt install -y ros-noetic-rosbridge-server ros-noetic-tf2-web-republisher
 sudo apt install -y ros-noetic-depthai-bridge ros-noetic-depthai-examples

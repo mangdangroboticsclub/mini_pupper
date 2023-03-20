@@ -43,7 +43,7 @@ sudo apt-get update
 sudo apt-get -y install python3 python3-pip python-is-python3 python3-venv python3-virtualenv
 ./mini_pupper_bsp/install.sh
 
-# sudo pip install -e ~/mini_pupper_bsp/Python_Module
+# sudo PBR_VERSION=$(cd ~/mini_pupper_bsp; ./get-version.sh) pip install ~/mini_pupper_bsp/Python_Module
 
 git clone https://github.com/Tiryoh/ros2_setup_scripts_ubuntu.git
 ~/ros2_setup_scripts_ubuntu/ros2-humble-ros-base-main.sh
