@@ -28,7 +28,7 @@ git clone https://github.com/mangdangroboticsclub/mini_pupper_bsp.git
 git clone https://github.com/Tiryoh/ros2_setup_scripts_ubuntu.git
 sudo apt-get update
 sudo apt-get -y install python3 python3-pip python-is-python3 python3-venv python3-virtualenv
-sudo pip install -e ~/mini_pupper_bsp/mock_api
+sudo PBR_VERSION=$(cd ~/mini_pupper_bsp; ./get-version.sh) pip install ~/mini_pupper_bsp/mock_api
 ~/ros2_setup_scripts_ubuntu/ros2-humble-desktop-main.sh
 source /opt/ros/humble/setup.bash
 
