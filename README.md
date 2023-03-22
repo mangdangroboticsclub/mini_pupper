@@ -43,6 +43,8 @@ prepare_sd.py
 
 And answer the questions. At the end eject your SD card, stick it into Mini Pupper, boot Mini Pupper and wait until the IP address is shown on the LCD.
 
+Attention：the default username should be "ubuntu", and you can use lsblk command to check the full path to SD card, similar "/media/username/system-boot/".
+
 If you are using Windows, run `prepare_sd.bat` instead of `prepare_sd.py`.
 
 ### Hosted by MangDang
