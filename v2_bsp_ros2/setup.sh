@@ -38,7 +38,7 @@ tmp=$(ps aux | grep unattended-upgrade | grep -v unattended-upgrade-shutdown | g
 done
 
 cd ~
-git clone https://github.com/mangdangroboticsclub/mini_pupper_bsp.git
+git clone https://github.com/mangdangroboticsclub/mini_pupper_2_bsp.git mini_pupper_bsp
 sudo apt-get update
 sudo apt-get -y install python3 python3-pip python-is-python3 python3-venv python3-virtualenv
 ./mini_pupper_bsp/install.sh
