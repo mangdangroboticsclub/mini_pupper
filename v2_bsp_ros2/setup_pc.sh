@@ -24,7 +24,7 @@ then
 fi
 
 cd ~
-git clone https://github.com/mangdangroboticsclub/mini_pupper_bsp.git
+git clone https://github.com/mangdangroboticsclub/mini_pupper_2_bsp.git mini_pupper_bsp
 git clone https://github.com/Tiryoh/ros2_setup_scripts_ubuntu.git
 sudo apt-get update
 sudo apt-get -y install python3 python3-pip python-is-python3 python3-venv python3-virtualenv
