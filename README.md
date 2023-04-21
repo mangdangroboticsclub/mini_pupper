@@ -43,7 +43,9 @@ Clone this repository on the PC where you have created your SD card. Make sure t
 prepare_sd.py
 ```
 
-And answer the questions. At the end eject your SD card, stick it into Mini Pupper, boot Mini Pupper and wait until the IP address is shown on the LCD.
+And answer the questions. At the end, it will show "Flashed cloud-config successfully"  
+Then eject your SD card, stick it into Mini Pupper, boot Mini Pupper and wait until the IP address is shown on the LCD.  
+Initial setup on Raspberry Pi takes an hour or more.
 
 You can use `lsblk` command to check the full path to SD card on Ubuntu, like `/media/username/system-boot/`.
 
