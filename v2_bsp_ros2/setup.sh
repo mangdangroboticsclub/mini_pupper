@@ -43,7 +43,10 @@ sudo apt-get update
 sudo apt-get -y install python3 python3-pip python-is-python3 python3-venv python3-virtualenv
 ./mini_pupper_bsp/install.sh
 
-# sudo PBR_VERSION=$(cd ~/mini_pupper_bsp; ./get-version.sh) pip install ~/mini_pupper_bsp/Python_Module
+sudo apt-get install -y pi-bluetooth
+sudo -H python3 -m pip install ds4drv
+sudo wget https://raw.githubusercontent.com/chrippa/ds4drv/master/udev/50-ds4drv.rules -O /etc/udev/rules.d/50-ds4drv.rules
+sudo udevadm control --reload-rules
 
 git clone https://github.com/Tiryoh/ros2_setup_scripts_ubuntu.git
 ~/ros2_setup_scripts_ubuntu/ros2-humble-ros-base-main.sh

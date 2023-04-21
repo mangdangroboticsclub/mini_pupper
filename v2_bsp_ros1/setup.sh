@@ -48,6 +48,11 @@ source /opt/ros/noetic/setup.bash
 source /usr/lib/python3/dist-packages/catkin_tools/verbs/catkin_shell_verbs.bash
 rosdep update
 
+sudo apt-get install -y pi-bluetooth ros-noetic-joy
+sudo -H python3 -m pip install ds4drv
+sudo wget https://raw.githubusercontent.com/chrippa/ds4drv/master/udev/50-ds4drv.rules -O /etc/udev/rules.d/50-ds4drv.rules
+sudo udevadm control --reload-rules
+
 mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws/src
 git clone -b ros1 https://github.com/mangdangroboticsclub/minipupper_ros.git
