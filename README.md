@@ -25,7 +25,7 @@ Focal: `ubuntu-20.04.5-preinstalled-server-arm64+raspi.img.xz` is recommended.
 
 https://cdimage.ubuntu.com/releases/20.04/release/
 
-Jammy: `ubuntu-22.04.1-preinstalled-server-arm64+raspi.img.xz` is recommended.
+Jammy: `ubuntu-22.04.2-preinstalled-server-arm64+raspi.img.xz` is recommended.
 
 https://cdimage.ubuntu.com/releases/22.04/release/
 
