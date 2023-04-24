@@ -36,7 +36,6 @@ body:
     label: Version
     description: What version of Mini Pupper are you running?
     options:
-      - Simulator
       - Mini Pupper
       - Mini Pupper 2
       - Mini Pupper 2 Pro
