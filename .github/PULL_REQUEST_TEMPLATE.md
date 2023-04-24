@@ -1,12 +1,14 @@
 ## Proposed change(s)
 
-Describe the changes made in this PR.
+<!-- Describe the changes made in this PR. -->
 
 ### Useful links (GitHub issues, forum threads, etc.)
 
-Provide any relevant links here.
+<!-- Provide any relevant links here. -->
 
 ### Types of change(s)
+
+<!-- Select one or more. -->
 
 - [ ] Bug fix (non-breaking change which fixes an issue)
 - [ ] New feature (non-breaking change which adds functionality)
@@ -17,7 +19,7 @@ Provide any relevant links here.
 
 ## Testing and Verification
 
-Please describe the tests that you ran to verify your changes. Please also provide instructions and ROS packages as appropriate so we can reproduce the test environment.
+<!-- Please describe the tests that you ran to verify your changes. Please also provide instructions as appropriate so we can reproduce the test environment. -->
 
 1. 1st command
 2. 2nd command
@@ -26,13 +28,13 @@ Please describe the tests that you ran to verify your changes. Please also provi
 ## Test Configuration
 
 __Mini Pupper Version__  
-[e.g. Simulator, Mini Pupper, Mini Pupper 2, Mini Pupper 2 Pro]
+<!-- [e.g. Mini Pupper, Mini Pupper 2, Mini Pupper 2 Pro] -->
 
-__Raspberry Pi OS + ROS version__  
-[e.g. Ubuntu 22.04, ROS 2 Humble]
+__Raspberry Pi OS version__  
+<!-- [e.g. Ubuntu 22.04] -->
 
-__PC OS + ROS version__  
-[e.g. Ubuntu 22.04, ROS 2 Humble]
+__PC OS version__  
+<!-- [e.g. Ubuntu 22.04] -->
 
 ## Checklist
 
