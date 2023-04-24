@@ -215,3 +215,5 @@ with open(user_data_file, 'w') as fh:
                           target_environment['script'],
                           target_environment['wifi_ssid'],
                           target_environment['wifi_password']))
+
+print("Flashed cloud-config successfully")

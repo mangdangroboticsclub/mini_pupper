@@ -25,13 +25,15 @@ Focal: `ubuntu-20.04.5-preinstalled-server-arm64+raspi.img.xz` is recommended.
 
 https://cdimage.ubuntu.com/releases/20.04/release/
 
-Jammy: `ubuntu-22.04.1-preinstalled-server-arm64+raspi.img.xz` is recommended.
+Jammy: `ubuntu-22.04.2-preinstalled-server-arm64+raspi.img.xz` is recommended.
 
 https://cdimage.ubuntu.com/releases/22.04/release/
 
 #### Manual Installation
 
 Boot Mini Pupper with your SD card, configure the network, clone this repository and run the setup script for your stack
+
+Note: __It is assumed that the standard user name of Ubuntu installed on the Raspberry Pi is "ubuntu"__.
 
 #### Fully Automated Installation (experimental)
 
@@ -41,9 +43,11 @@ Clone this repository on the PC where you have created your SD card. Make sure t
 prepare_sd.py
 ```
 
-And answer the questions. At the end eject your SD card, stick it into Mini Pupper, boot Mini Pupper and wait until the IP address is shown on the LCD.
+And answer the questions. At the end, it will show "Flashed cloud-config successfully"  
+Then eject your SD card, stick it into Mini Pupper, boot Mini Pupper and wait until the IP address is shown on the LCD.  
+Initial setup on Raspberry Pi takes an hour or more.
 
-Attention：the default username should be "ubuntu", and you can use lsblk command to check the full path to SD card, similar "/media/username/system-boot/".
+You can use `lsblk` command to check the full path to SD card on Ubuntu, like `/media/username/system-boot/`.
 
 If you are using Windows, run `prepare_sd.bat` instead of `prepare_sd.py`.
 
