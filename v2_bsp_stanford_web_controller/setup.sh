@@ -38,7 +38,7 @@ fi
 
 cd ~
 git clone https://github.com/mangdangroboticsclub/mini_pupper_2_bsp.git  mini_pupper_bsp
-git clone https://github.com/CullenSUN/StanfordQuadruped.git -b feature/fix-install-script 
+git clone https://github.com/mangdangroboticsclub/StanfordQuadruped.git
 git clone https://github.com/mangdangroboticsclub/mini_pupper_web_controller.git
 
 ./mini_pupper_bsp/install.sh
