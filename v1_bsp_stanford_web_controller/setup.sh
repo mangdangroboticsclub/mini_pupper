@@ -40,13 +40,10 @@ cd ~
 git clone https://github.com/mangdangroboticsclub/mini_pupper_bsp.git
 git clone https://github.com/mangdangroboticsclub/StanfordQuadruped.git
 git clone https://github.com/mangdangroboticsclub/mini_pupper_web_controller.git
+
 ./mini_pupper_bsp/install.sh
-
-cd StanfordQuadruped
-./install.sh
-./configure_network.sh $1 "$2"
-
-cd ~
+./StanfordQuadruped/install.sh
 ./mini_pupper_web_controller/webserver/install.sh
+
 echo "setup.sh finished at $(date)"
 sudo reboot
