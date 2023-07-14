@@ -131,8 +131,8 @@ chpasswd:
   - ubuntu:%s
 packages:
 - git
-runcmd:
-- [ su, ubuntu, -c, "git clone https://github.com/mangdangroboticsclub/mini_pupper.git /home/ubuntu/mini_pupper" ]
+runcmd:                        
+- [ su, ubuntu, -c, "git clone https://github.com/CullenSUN/mini_pupper.git -b feature/fix-install-script /home/ubuntu/mini_pupper" ]
 - [ su, ubuntu, -c, "/home/ubuntu/mini_pupper/%s %s '%s' 2> /home/ubuntu/.setup_err.log > /home/ubuntu/.setup_out.log" ]
 - [ reboot ]
 """
@@ -202,7 +202,6 @@ write_files:
   permissions: '0755'
   owner: root:root
 """
-
 
 # Use different cloud-init configuration for Ubuntu Focal (20.04)
 if target_environment['stack_owner'] == '1' and target_environment['stack'] == '2':
