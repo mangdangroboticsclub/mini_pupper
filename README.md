@@ -65,9 +65,10 @@ You will find these repos under https://github.com/mangdangroboticsclub
 | Repository                       | Description                                                                                        | Status       |
 | ---                              | ---                                                                                                | ---          |
 | mini_pupper_bsp                  | BSP(board support package) for Mini Pupper.                                                        | working      |
+| mini_pupper_2_bsp                | BSP(board support package) for Mini Pupper v2.                                                     | working      |
 | StanfordQuadruped -b mini_pupper | This is a fork of the StanfordQuadruped repository with modification to make it run on Mini Pupper | working      |
+| mini_pupper_ros_bsp              | BSP(board support package) for Mini Pupper (all hardware versions).                                | working      |
 | mini_pupper_web_controller       | This code provides a web GUI for Mini Pupper running StanfordQuadruped                             | testing      |
-| mini_pupper_ros -b ros1          | This code used Champ and ROS1 to control Mini Pupper.                                              | testing      |
 | mini_pupper_ros -b ros2          | This code used Champ and ROS2 to control Mini Pupper.                                              | experimental |
 
 #### Full Stacks
