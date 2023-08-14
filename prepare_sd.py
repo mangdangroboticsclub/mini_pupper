@@ -124,6 +124,8 @@ with open(network_conf_file, 'w') as fh:
 
 user_data_file = os.path.join(target_environment['sd_path'], 'user-data')
 user_data = """#cloud-config
+package_upgrade: true
+package_reboot_if_required: true
 ssh_pwauth: True
 chpasswd:
   expire: false
