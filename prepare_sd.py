@@ -12,12 +12,31 @@ import os
 ##############################################################
 
 target_environment = {}
-hardware_version = ['v1', 'v2', 'v2_pro']
-stack_owners = ['MangDang', 'Third Parties']
-stack_names_mangdang = ['Stanford', 'ROS1', 'ROS2']
-stack_scripts_mangdang = ['bsp_stanford_web_controller/setup.sh', 'bsp_ros1/setup.sh', 'bsp_ros2/setup.sh']
-stack_names_thirdparties = ['ROS1 Jupyter Notebook', 'ESP IDF']
-stack_scripts_thirdparties = ['ros1_jupyter/setup.sh', 'esp_idf/setup.sh']
+hardware_version = ['v1', 'v2']
+stack_names = ['Stanford', 'ROS']
+stacks = {}
+stacks['v1_Stanford'] = {}
+stacks['v2_Stanford'] = {}
+stacks['v1_ROS'] = {}
+stacks['v2_ROS'] = {}
+stacks['v1_Stanford']['repos'] = [" https://github.com/mangdangroboticsclub/mini_pupper_bsp.git ~/mini_pupper_bsp",
+                                  " https://github.com/mangdangroboticsclub/StanfordQuadruped.git ~/StanfordQuadruped",
+                                  " https://github.com/mangdangroboticsclub/mini_pupper_web_controller.git ~/mini_pupper_web_controller"]
+stacks['v1_Stanford']['scripts'] = ["~/mini_pupper_web_controller/setup.sh v1",
+                                    "sudo reboot"]
+stacks['v2_Stanford']['repos'] = [" https://github.com/mangdangroboticsclub/mini_pupper_2_bsp.git ~/mini_pupper_bsp",
+                                  " https://github.com/mangdangroboticsclub/StanfordQuadruped.git ~/StanfordQuadruped",
+                                  " https://github.com/mangdangroboticsclub/mini_pupper_web_controller.git ~/mini_pupper_web_controller"]
+stacks['v2_Stanford']['scripts'] = ["~/mini_pupper_web_controller/setup.sh v2",
+                                    "sudo reboot"]
+stacks['v1_ROS']['repos'] = [" https://github.com/mangdangroboticsclub/mini_pupper_bsp.git ~/mini_pupper_bsp",
+                             "https://github.com/mangdangroboticsclub/mini_pupper_ros_bsp.git ~/mini_pupper_ros_bsp"]
+stacks['v1_ROS']['scripts'] = ["~/mini_pupper_ros_bsp/setup.sh v1",
+                               "sudo reboot"]
+stacks['v2_ROS']['repos'] = [" https://github.com/mangdangroboticsclub/mini_pupper_2_bsp.git ~/mini_pupper_bsp",
+                             "https://github.com/mangdangroboticsclub/mini_pupper_ros_bsp.git ~/mini_pupper_ros_bsp"]
+stacks['v2_ROS']['scripts'] = ["~/mini_pupper_ros_bsp/setup.sh v2",
+                               "sudo reboot"]
 
 
 def write_cache(cache_file):
@@ -32,32 +51,23 @@ def ask_user(prompt, var_name):
 
 
 def ask_questions():
-    if not 'wifi_ssid' in target_environment.keys():
+    if 'wifi_ssid' not in target_environment.keys():
         ask_user("Your WiFi SSID", 'wifi_ssid')
-    if not 'wifi_password' in target_environment.keys():
+    if 'wifi_password' not in target_environment.keys():
         ask_user("Your WiFi password", 'wifi_password')
-    if not 'ubuntu_password' in target_environment.keys():
+    if 'ubuntu_password' not in target_environment.keys():
         ask_user("Mini Pupper user password", 'ubuntu_password')
-    if not 'hardware_version' in target_environment.keys():
+    if 'hardware_version' not in target_environment.keys():
         print("Which Mini Pupper Hardware do you want to install:\n")
         for i in range(len(hardware_version)):
             print("%s: %s" % (i + 1, hardware_version[i]))
         ask_user("Please enter number", 'hardware_version')
-    if not 'stack_owner' in target_environment.keys():
-        print("Which stack do you want to install?\nSelect Owner:\n")
-        for i in range(len(stack_owners)):
-            print("%s: %s" % (i + 1, stack_owners[i]))
-        ask_user("Please enter number", 'stack_owner')
-    if not 'stack' in target_environment.keys():
-        if target_environment['stack_owner'] == '1':
-            stack_names = stack_names_mangdang
-        if target_environment['stack_owner'] == '2':
-            stack_names = stack_names_thirdparties
+    if 'stack' not in target_environment.keys():
         print("Select stack:\n")
         for i in range(len(stack_names)):
             print("%s: %s" % (i + 1, stack_names[i]))
         ask_user("Please enter number", 'stack')
-    if not 'sd_path' in target_environment.keys():
+    if 'sd_path' not in target_environment.keys():
         ask_user("Full path to SD card", 'sd_path')
 
 
@@ -87,24 +97,14 @@ if os.path.exists(conf_file):
                 if len(value) > 0:
                     target_environment[key] = value
 ask_questions()
-if target_environment['stack_owner'] == '1':
-    stack_scripts = stack_scripts_mangdang
-if target_environment['stack_owner'] == '2':
-    stack_scripts = stack_scripts_thirdparties
-target_environment['script'] = "%s_%s" % (hardware_version[int(target_environment['hardware_version']) - 1],
-                                          stack_scripts[int(target_environment['stack']) - 1])
+target_environment['selected_stack'] = "%s_%s" % (hardware_version[int(target_environment['hardware_version']) - 1],
+                                                  stack_names[int(target_environment['stack']) - 1])
 if args.cache:
     write_cache(conf_file)
 
 network_conf_file = os.path.join(target_environment['sd_path'], 'network-config')
 if not os.path.exists(network_conf_file):
     sys.exit("Invalid path to SD card or SD card not mounted\n")
-
-# Check Answers
-script_file = os.path.join(os.path.dirname(os.path.realpath(__file__)), target_environment['script'])
-if not os.path.isfile(script_file):
-    print("This Stack is not supported\n")
-    sys.exit()
 
 network_conf = """version: 2
 ethernets:
@@ -132,88 +132,19 @@ chpasswd:
 packages:
 - git
 runcmd:
-- [ su, ubuntu, -c, "git clone https://github.com/mangdangroboticsclub/mini_pupper.git /home/ubuntu/mini_pupper" ]
-- [ su, ubuntu, -c, "/home/ubuntu/mini_pupper/%s %s '%s' 2> /home/ubuntu/.setup_err.log > /home/ubuntu/.setup_out.log" ]
-- [ reboot ]
+%s
+%s
 """
-
-user_data_focal = """#cloud-config
-ssh_pwauth: True
-chpasswd:
-  expire: false
-  list:
-  - ubuntu:%s
-write_files:
-- path: /var/lib/mini_pupper/setup.sh
-  content: |
-    #!/bin/bash
-    /usr/bin/git clone https://github.com/mangdangroboticsclub/mini_pupper.git /home/ubuntu/mini_pupper
-    /home/ubuntu/mini_pupper/%s %s '%s' 2> /home/ubuntu/.setup_err.log > /home/ubuntu/.setup_out.log
-    reboot
-  permissions: '0755'
-  owner: root:root
-- path: /etc/rc.local
-  content: |
-    #!/bin/bash
-    /var/lib/mini_pupper/setup.sh
-  permissions: '0755'
-  owner: root:root
-- path: /lib/systemd/system/rc-local.service
-  content: |
-    [Unit]
-    Description=/etc/rc.local Compatibility
-    Documentation=man:systemd-rc-local-generator(8)
-    ConditionFileIsExecutable=/etc/rc.local
-    After=network.target
-
-    [Service]
-    Type=forking
-    ExecStart=/etc/rc.local
-    TimeoutSec=0
-    RemainAfterExit=no
-    GuessMainPID=no
-    User=ubuntu
-
-    [Install]
-    WantedBy=multi-user.target
-    Alias=rc.local.service
-  permissions: '0644'
-  owner: root:root
-runcmd:
-- [ systemctl, enable, rc-local ]
-- [ /usr/bin/sleep, 60 ]
-- [ reboot ]
-"""
-
-# for now do not start automatically
-user_data_focal = """#cloud-config
-ssh_pwauth: True
-chpasswd:
-  expire: false
-  list:
-  - ubuntu:%s
-write_files:
-- path: /var/lib/mini_pupper/setup.sh
-  content: |
-    #!/bin/bash
-    /usr/bin/git clone https://github.com/mangdangroboticsclub/mini_pupper.git /home/ubuntu/mini_pupper
-    /home/ubuntu/mini_pupper/%s %s '%s' 2> /home/ubuntu/.setup_err.log > /home/ubuntu/.setup_out.log
-    reboot
-  permissions: '0755'
-  owner: root:root
-"""
-
-
-# Use different cloud-init configuration for Ubuntu Focal (20.04)
-if target_environment['stack_owner'] == '1' and target_environment['stack'] == '2':
-    user_data = user_data_focal
-if target_environment['stack_owner'] == '2' and target_environment['stack'] == '1':
-    user_data = user_data_focal
+repos = ''
+for repo in stacks[target_environment['selected_stack']]['repos']:
+    repos += '- [ su, ubuntu, -c, "git clone %s" ]\n' % repo
+scripts = ''
+for script in stacks[target_environment['selected_stack']]['scripts']:
+    scripts += '- [ su, ubuntu, -c, "%s 2>> /home/ubuntu/.setup_err.log >> /home/ubuntu/.setup_out.log" ]\n' % script
 
 with open(user_data_file, 'w') as fh:
     fh.write(user_data % (target_environment['ubuntu_password'],
-                          target_environment['script'],
-                          target_environment['wifi_ssid'],
-                          target_environment['wifi_password']))
+                          repos[:-1],
+                          scripts[:-1]))
 
 print("Flashed cloud-config successfully")
