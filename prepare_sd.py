@@ -19,22 +19,22 @@ stacks['v1_Stanford'] = {}
 stacks['v2_Stanford'] = {}
 stacks['v1_ROS'] = {}
 stacks['v2_ROS'] = {}
-stacks['v1_Stanford']['repos'] = [" https://github.com/mangdangroboticsclub/mini_pupper_bsp.git ~/mini_pupper_bsp",
-                                  " https://github.com/mangdangroboticsclub/StanfordQuadruped.git ~/StanfordQuadruped",
-                                  " https://github.com/mangdangroboticsclub/mini_pupper_web_controller.git ~/mini_pupper_web_controller"]
+stacks['v1_Stanford']['repos'] = [" -b v1.0.2 https://github.com/mangdangroboticsclub/mini_pupper_bsp.git ~/mini_pupper_bsp",
+                                  " -b v1.0.2 https://github.com/mangdangroboticsclub/StanfordQuadruped.git ~/StanfordQuadruped",
+                                  " -b v1.0.2.1 https://github.com/mangdangroboticsclub/mini_pupper_web_controller.git ~/mini_pupper_web_controller"]
 stacks['v1_Stanford']['scripts'] = ["~/mini_pupper_web_controller/setup.sh v1",
                                     "sudo reboot"]
-stacks['v2_Stanford']['repos'] = [" https://github.com/mangdangroboticsclub/mini_pupper_2_bsp.git ~/mini_pupper_bsp",
-                                  " https://github.com/mangdangroboticsclub/StanfordQuadruped.git ~/StanfordQuadruped",
-                                  " https://github.com/mangdangroboticsclub/mini_pupper_web_controller.git ~/mini_pupper_web_controller"]
+stacks['v2_Stanford']['repos'] = [" -b v1.0.2 https://github.com/mangdangroboticsclub/mini_pupper_2_bsp.git ~/mini_pupper_bsp",
+                                  " -b v1.0.2 https://github.com/mangdangroboticsclub/StanfordQuadruped.git ~/StanfordQuadruped",
+                                  " -b v1.0.2.1 https://github.com/mangdangroboticsclub/mini_pupper_web_controller.git ~/mini_pupper_web_controller"]
 stacks['v2_Stanford']['scripts'] = ["~/mini_pupper_web_controller/setup.sh v2",
                                     "sudo reboot"]
-stacks['v1_ROS']['repos'] = [" https://github.com/mangdangroboticsclub/mini_pupper_bsp.git ~/mini_pupper_bsp",
-                             "https://github.com/mangdangroboticsclub/mini_pupper_ros_bsp.git ~/mini_pupper_ros_bsp"]
+stacks['v1_ROS']['repos'] = [" -b v1.0.2 https://github.com/mangdangroboticsclub/mini_pupper_bsp.git ~/mini_pupper_bsp",
+                             "-b v1.0.2 https://github.com/mangdangroboticsclub/mini_pupper_ros_bsp.git ~/mini_pupper_ros_bsp"]
 stacks['v1_ROS']['scripts'] = ["~/mini_pupper_ros_bsp/setup.sh v1",
                                "sudo reboot"]
-stacks['v2_ROS']['repos'] = [" https://github.com/mangdangroboticsclub/mini_pupper_2_bsp.git ~/mini_pupper_bsp",
-                             "https://github.com/mangdangroboticsclub/mini_pupper_ros_bsp.git ~/mini_pupper_ros_bsp"]
+stacks['v2_ROS']['repos'] = [" -b v1.0.2 https://github.com/mangdangroboticsclub/mini_pupper_2_bsp.git ~/mini_pupper_bsp",
+                             "-b v1.0.2 https://github.com/mangdangroboticsclub/mini_pupper_ros_bsp.git ~/mini_pupper_ros_bsp"]
 stacks['v2_ROS']['scripts'] = ["~/mini_pupper_ros_bsp/setup.sh v2",
                                "sudo reboot"]
 
