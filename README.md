@@ -43,7 +43,11 @@ If you are using Windows, run `prepare_sd.bat` instead of `prepare_sd.py`.
 
 #### Pre-build Images
 
-You can flash your SD card with pre-build images. The list of available images will be pusblished here shortly
+You can flash your SD card with our [pre-built images](https://drive.google.com/drive/folders/175PWfA3oIgC565D_2thNbvp9qQf6Y6-V). 
+
+We recommend you use no-ros pre-built images first to confirm the basic functions using the [controller](https://www.youtube.com/watch?v=FRBh3URTuuI) or the [browser](https://github.com/mangdangroboticsclub/mini_pupper_web_controller), then try the ros version if needed.
+
+Whenever you report a SW issue, please post the file "mini-pupper-release" of your pupper. This must contain the line IS_RELEASE=YES, if not please install our official image and report back if the issue still exists.
 
 ### Reconfiguration
 
