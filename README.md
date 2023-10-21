@@ -23,9 +23,8 @@ We highlight the Status of the code as follows:
 
 Prepare an SD card with the operating system required for your stack. 
 
-Jammy: `ubuntu-22.04.2-preinstalled-server-arm64+raspi.img.xz` is recommended.
+Jammy: `ubuntu-22.04.2-preinstalled-server-arm64+raspi.img.xz` is recommended, you can find it on [Ubuntu official website](https://cdimage.ubuntu.com/releases/22.04/release/) or [our google drive](https://drive.google.com/file/d/1sr8s2WOUe1KMS-0jGaY3mAQrPVaJJcpR/view?usp=sharing).
 
-https://cdimage.ubuntu.com/releases/22.04/release/
 
 Clone this repository on the PC where you have created your SD card. Make sure the SD card is mounted. Run
 
