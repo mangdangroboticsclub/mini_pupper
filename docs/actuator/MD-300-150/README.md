@@ -84,15 +84,6 @@ The MD-300-150 is a 3-in-1 smart actuator: three coreless-DC servos driven by on
 
 **Performance graph (torque vs. speed and current): to be measured.**
 
-Measured on a Mini Pupper with 12 servos (4 modules):
-
-| Test | Result |
-| ---- | ------ |
-| 300° swing, unloaded, average speed (10 ~ 90 % of travel) | 176 ~ 185 [rev/min] |
-| Time for a 300° swing (default gains / stiff gains) | ≈ 304 [ms] / ≈ 296 [ms] |
-| Peak current of one servo during a backflip | ≈ 1.0 ~ 1.2 [A] |
-| Peak current of all 12 servos during a backflip | 5.1 ~ 5.7 [A] |
-
 ## Control Table
 
 The Control Table lists every value a servo stores or reports. Each of the 3 servos in a module has its own copy. The host writes values to control the servo and reads values to monitor it.
