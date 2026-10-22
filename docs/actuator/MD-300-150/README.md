@@ -39,7 +39,7 @@ The MD-300-150 is a 3-in-1 smart actuator: three coreless-DC servos driven by on
 | Resolution             | 4096 [steps] over 310 [°] (≈ 0.076 [°]) |
 | Operating Modes        | Position Control Mode (0 ~ 310 [°])<br>Current-based Position Control Mode<br>Current Control Mode<br>PWM Control Mode (Voltage Control Mode) |
 | Weight                 | 65 [g] |
-| Dimensions (W x H x D) | **Ø40.0 x 33.3** [mm] |
+| Dimensions             | **Ø40.0 x 33.35** [mm] (body)<br>49.2 x 37.4 [mm] (maximum, including the output shafts) |
 | Gear Ratio             | 161.9 : 1 / 155.3 : 1 / 152.7 : 1 |
 | Stall Torque           | 0.5 [N.m] (at 9 [V], 0.7 [A], 0.71 [Nm/A])<br>**0.6 [N.m] (at 11.1 [V], 0.8 [A], 0.75 [Nm/A])**<br>0.7 [N.m] (at 14.8 [V], 0.9 [A], 0.78 [Nm/A]) |
 | No Load Speed          | 99 / 100 / 101 [rev/min] (at 7.4 [V])<br>**150 / 152 / 153 [rev/min] (at 11.1 [V])**<br>206 / 209 / 209 [rev/min] (at 14.8 [V]) |
