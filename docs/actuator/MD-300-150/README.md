@@ -46,7 +46,7 @@ The MD-300-150 is a 3-in-1 smart actuator: three coreless-DC servos driven by on
 | Operating Temperature  | -5 ~ +70 [°C] |
 | Input Voltage          | 9.0 ~ 12.6 [V] (**Recommended: 11.1 [V]**) |
 | Command Signal         | Digital Packet |
-| Physical Connection    | SPI, 6-pin (VIN, GND, MOSI, SCK, MISO, CS) |
+| Physical Connection    | SPI, 6-pin (VIN, GND, MOSI, SCK, MISO, CS)<br>TTL: ongoing |
 | ID                     | One chip-select line per module, servo 1 ~ 3 inside the module |
 | Feedback               | Position, Current, Temperature<br>On request: setpoint, errors, PWM duty, mode, raw sensor readings |
 | Case Material          | Engineering Plastic |
