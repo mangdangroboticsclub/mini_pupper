@@ -93,8 +93,22 @@ Software: [Servo SDK](../../software/servo_sdk/README.md) (ESP32 library) · [Se
 The Control Table lists every value a servo stores or reports. Each of the 3 servos in a module has its own copy. The host writes values to control the servo and reads values to monitor it.
 
 > [!NOTE]
-> The SPI interface has no byte-addressed memory. The **No.** column numbers the items for reference; the **SPI** column says where each item travels on the bus (see [Communication (SPI)](#communication-spi)):
-> `CFG n` = configuration ID n, `LIVE n` = live-value ID n, `CMD +n` / `FB +n` = byte n of the servo's block in the command / feedback frame.
+> Unlike a servo with an addressed memory, the MD-300-150 has no **Address** column. The **No.** column is a reference number only and is never sent to the servo. The **SPI** column shows how each item is reached on the bus (see [Communication (SPI)](#communication-spi)).
+
+| SPI | How to reach the item | Example |
+| --- | --------------------- | ------- |
+| `CFG n` | Config frame (Start `0xC0DE`), Op SET or GET, ID n | [Position P Gain(5)](#position-pid-gain5-6-10) = `CFG 5` |
+| `LIVE n` | Config frame (Start `0xC0DE`), Op GET_LIVE, ID n | [Loop Counter(30)](#loop-counter30) = `LIVE 11` |
+| `CMD +n` | Byte n of the servo's block in the command frame | [Goal Position(14)](#goal-position14) = `CMD +2` |
+| `FB +n` | Byte n of the servo's block in the feedback frame | [Present Temperature(18)](#present-temperature18-31) = `FB +6` |
+
+Each frame carries all 3 servos of the module. The byte in the frame = start of the servo's block + n:
+
+| Servo | Block starts at byte | Example |
+| ----- | -------------------- | ------- |
+| 1 | 4 | Goal Position of servo 1 = byte 4 + 2 = 6 |
+| 2 | 14 | Goal Position of servo 2 = byte 14 + 2 = 16 |
+| 3 | 24 | Present Temperature of servo 3 = byte 24 + 6 = 30 |
 
 ### Area (EEPROM, RAM)
 
