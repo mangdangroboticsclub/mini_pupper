@@ -16,7 +16,9 @@ The MD-300-150 is a 3-in-1 smart actuator: three coreless-DC servos driven by on
 - [Performance](#performance)
 - [Control Table](#control-table)
   - [Area (EEPROM, RAM)](#area-eeprom-ram)
-  - [Size, Access, Initial Value](#size-access-initial-value)
+  - [Size](#size)
+  - [Access](#access)
+  - [Initial Value](#initial-value)
   - [Control Table of EEPROM Area](#control-table-of-eeprom-area)
   - [Control Table of RAM Area](#control-table-of-ram-area)
   - [Control Table Description](#control-table-description)
@@ -94,14 +96,31 @@ The Control Table lists every value a servo stores or reports. Each of the 3 ser
 
 ### Area (EEPROM, RAM)
 
-- **EEPROM area** (No. 0 ~ 12): configuration. A write takes effect at once; the **SAVE** command stores all of them in flash so they survive a power cycle. **RESTORE** loads the factory values.
-- **RAM area** (No. 13 ~ 31): commands and feedback. They are reset when the power is turned off.
+The Control Table is divided into two areas. Data in the **EEPROM area** (No. 0 ~ 12) is non-volatile: once stored with the SAVE command, it is kept in the flash memory of the module even when the power is turned off. Data in the **RAM area** (No. 13 ~ 31) is volatile and returns to its initial value every time the power is turned on.
 
-### Size, Access, Initial Value
+> [!NOTE]
+> A new value written to the EEPROM area takes effect immediately, but it is only kept after a power cycle once the SAVE command has been sent. The RESTORE command reloads the factory default values.
 
-- **Size**: configuration and live values are 4-byte floats; command and feedback fields are 2-byte integers, little endian. Negative values use two's complement.
-- **Access**: `RW` read and write, `W` written by the host in every command, `R` read only.
-- **Initial Value**: the factory value (EEPROM area) or the value at power-up (RAM area).
+### Size
+
+The size of each data item is given in bytes. Configuration values and live values are transferred as 4-byte floating-point numbers. Command and feedback values are transferred as 2-byte integers. Data larger than 1 byte is sent in [Little Endian](https://en.wikipedia.org/wiki/Endianness#Little) byte order.
+
+> [!NOTE]
+> Two's complement is applied to negative integer values. For more information, please refer to [Two's complement](https://en.wikipedia.org/wiki/Two%27s_complement) on Wikipedia.
+
+### Access
+
+Each data item in the Control Table has one of three access properties:
+
+| Access | Description |
+| ------ | ----------- |
+| RW | Read and write. The value can be read with the GET command and changed with the SET command. Used to configure the device. |
+| W | Write. The value is written by the host in every command frame. Used to control the device. |
+| R | Read only. The value is reported in the feedback frame or read with the GET_LIVE command, and cannot be changed by the host. Used for measurement and monitoring. |
+
+### Initial Value
+
+The Initial Value is the value each data item holds when the device is turned on. In the EEPROM area, the initial values listed in the Control Table are the factory default settings; if a user changes a value and stores it with the SAVE command, the stored value becomes the new initial value at the next power-up. In the RAM area, the initial values are restored every time the device is turned on.
 
 ### Control Table of EEPROM Area
 
