@@ -28,6 +28,8 @@ The MD-300-150 is a 3-in-1 smart actuator: three coreless-DC servos driven by on
 - [Motion Profile](#motion-profile)
 - [Drawings](#drawings)
 
+Software: [Servo SDK](../../software/servo_sdk/README.md) (ESP32 library) · [Servo Studio](../../software/servo_studio/README.md) (web tool for settings, calibration and live graphs)
+
 ## Specifications
 
 | Item                   | Specifications |
