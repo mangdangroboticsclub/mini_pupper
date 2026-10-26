@@ -387,7 +387,7 @@ The mode names in the [Specifications](#specifications) are combinations of [Goa
 > [!WARNING]
 > Remove the horns or legs, or keep the robot on a stand, before the first power-on. A servo that is set wrong can move suddenly.
 
-1. With the power **off**, plug the module into a connector of the host board. On the Mini Pupper, CN4 = servo ID 1 ~ 3, CN5 = 4 ~ 6, CN3 = 7 ~ 9, CN6 = 10 ~ 12 (see [Servo SDK, Hardware Setup](../../software/servo_sdk/README.md#hardware-setup)).
+1. With the power **off**, plug the module into a connector of the host board (CN3 ~ CN6). Which connector belongs to which leg depends on the robot's harness; see [Servo SDK, Hardware Setup](../../software/servo_sdk/README.md#hardware-setup).
 2. Switch the power **on**.
 3. Open [Servo Studio](../../software/servo_studio/README.md#open-servo-studio) and turn on **Connect**. The 3 servos of the module appear with their position, current and temperature.
 4. Check the settings against the [Control Table of EEPROM Area](#control-table-of-eeprom-area), for example Position P Gain(5) = 80.
