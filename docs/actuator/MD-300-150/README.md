@@ -233,6 +233,34 @@ Gains of the position controller, which runs every 0.5 [ms] (2 [kHz]). How the o
 
 In PWM mode the D term acts on the measured velocity, so a jump in [Goal Position(14)](#goal-position14) does not cause a kick, and the I term stops growing while the output is at its limit (anti-windup, at most 50 % of Current Limit). Position I Gain = 0 turns the I term off.
 
+How the servo turns [Goal Position(14)](#goal-position14) into motor power:
+
+**Control Mode 1 (PWM), default**
+
+![Position controller, Control Mode 1 (PWM)](../../images/MD-300-150.controller_pwm.svg)
+
+1. The host sends [Goal Position(14)](#goal-position14) and [Current Limit(15)](#goal-current--current-limit15) in the command frame.
+2. Every 0.5 [ms] the servo reads the potentiometer ([Position Input ADC(19)](#position--current-input-adc19-20)) and turns it into Present Position with [Min/Max Position ADC(1, 2)](#minmax-position-adc1-2), [Range Position(3)](#range-position3) and [Reverse Position Sensor(0)](#reverse-position-sensor0).
+3. [Position Error(23)](#setpoint-position21-position-error23) = Goal Position − Present Position. An error under 0.1 [°] counts as 0 (dead band), so the servo stays quiet at rest.
+4. The PID sums P(5) × error + I(10) × ∫error − D(6) × velocity. The velocity is taken from the measured position, so a jump in Goal Position does not cause a kick.
+5. The sum, [Controller Output(25)](#controller-output25), is limited to ± Current Limit(15). The I term stops growing at the limit (anti-windup).
+6. PWM duty = [PWM Scale(12)](#pwm-scale12) × Controller Output, at most [PWM Limit(9)](#pwm-limit9). [Reverse Motor(4)](#reverse-motor4) sets the direction, and the H-bridge drives the motor at 20 [kHz] ([Present PWM(28)](#present-pwm28)).
+7. The results are reported as [Present Position(16, 22)](#present-position16-22), [Present Current(17, 26)](#present-current17-26) and Present PWM(28).
+
+**Control Mode 0 (CURRENT)**
+
+![Position controller, Control Mode 0 (CURRENT)](../../images/MD-300-150.controller_current.svg)
+
+1. The host sends [Goal Position(14)](#goal-position14) and [Current Limit(15)](#goal-current--current-limit15) in the command frame.
+2. Every 0.5 [ms] the servo measures Present Position, as in Control Mode 1.
+3. The PD sums P(5) × error + D(6) × change of error. The result is a current setpoint in mA, limited to ± Current Limit(15) ([Controller Output(25)](#controller-output25)).
+4. Every 50 [μs] the current loop compares the setpoint with Present Current from the current sensor ([Current Input ADC(20)](#position--current-input-adc19-20)) and sets PWM = [Feed-forward Gain(8)](#current-gain7-8) × setpoint + [Current P Gain(7)](#current-gain7-8) × (setpoint − Present Current) ([Current Error(27)](#current-error27)).
+5. The PWM is limited to [PWM Limit(9)](#pwm-limit9). [Reverse Motor(4)](#reverse-motor4) sets the direction, and the H-bridge drives the motor at 20 [kHz] ([Present PWM(28)](#present-pwm28)).
+6. The results are reported as [Present Position(16, 22)](#present-position16-22), [Present Current(17, 26)](#present-current17-26) and Present PWM(28).
+
+> [!NOTE]
+> In Torque mode ([Goal Mode(13)](#goal-mode13) = 2) the position controller is skipped. With Control Mode 0, [Goal Current(15)](#goal-current--current-limit15) goes straight to the current loop as the setpoint; with Control Mode 1, it goes straight to PWM Scale(12).
+
 #### Current Gain(7, 8)
 
 Used only when [Control Mode(11)](#control-mode11) = 0. The current loop runs every 50 [μs] (20 [kHz]) and sets:
