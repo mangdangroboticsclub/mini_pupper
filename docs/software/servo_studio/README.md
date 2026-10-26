@@ -1,9 +1,9 @@
 # Servo Studio
 
-Servo Studio is part of the MPX app, the web app the robot serves itself. With it you can read and change the settings of each [MD-300-150](../../actuator/MD-300-150/README.md) servo, calibrate its position sensor and watch it live. Nothing to install: any phone or computer with a browser works.
+Servo Studio is part of the web app the robot serves itself. With it you can read and change the settings of each [MD-300-150](../../actuator/MD-300-150/README.md) servo, calibrate its position sensor and watch it live. Nothing to install: any phone or computer with a browser works.
 
 > [!NOTE]
-> This page describes Servo Studio of the [mpx-dog](https://github.com/mangdangroboticsclub/mpx-dog) firmware for actuator **firmware 0.0.9**. The page is `pwa-claw/src/lib/ServoStudio.svelte`; it uses the [HTTP API](#http-api) below, which calls the [Servo SDK](../servo_sdk/README.md).
+> This page describes Servo Studio of the [minipupper_4_mcu](https://github.com/mangdangroboticsclub/minipupper_4_mcu) firmware for actuator **firmware 0.0.9**. The page is `pwa-claw/src/lib/ServoStudio.svelte`; it uses the [HTTP API](#http-api) below, which calls the [Servo SDK](../servo_sdk/README.md).
 
 ## Contents
 

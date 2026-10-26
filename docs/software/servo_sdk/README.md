@@ -1,9 +1,9 @@
 # Servo SDK (ESP32)
 
-The Servo SDK is the C library the MPX firmware uses to control the 12 [MD-300-150](../../actuator/MD-300-150/README.md) servos of the robot. It runs on ESP-IDF and talks to the four actuator modules (one per leg, 3 servos each) over SPI.
+The Servo SDK is the C library the minipupper_4_mcu firmware uses to control the 12 [MD-300-150](../../actuator/MD-300-150/README.md) servos of the robot. It runs on ESP-IDF and talks to the four actuator modules (one per leg, 3 servos each) over SPI.
 
 > [!NOTE]
-> This page describes the SDK for actuator **firmware 0.0.9**. The SDK is `main/robot/driver_board.c` / `driver_board.h` of the [mpx-dog](https://github.com/mangdangroboticsclub/mpx-dog) firmware; the pins are in `main/robot/board_config.h`.
+> This page describes the SDK for actuator **firmware 0.0.9**. The SDK is `main/robot/driver_board.c` / `driver_board.h` of the [minipupper_4_mcu](https://github.com/mangdangroboticsclub/minipupper_4_mcu) firmware; the pins are in `main/robot/board_config.h`.
 
 ## Contents
 
