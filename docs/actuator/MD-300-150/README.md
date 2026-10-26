@@ -23,6 +23,11 @@ The MD-300-150 is a 3-in-1 smart actuator: three coreless-DC servos driven by on
   - [Control Table of RAM Area](#control-table-of-ram-area)
   - [Control Table Description](#control-table-description)
 - [Operating Modes](#operating-modes)
+- [How to Assemble](#how-to-assemble)
+- [Quick Start](#quick-start)
+  - [Prerequisites](#prerequisites)
+  - [Compatible Software with MANGDANG](#compatible-software-with-mangdang)
+  - [First Steps](#first-steps)
 - [Connector Information](#connector-information)
 - [Communication (SPI)](#communication-spi)
 - [Motion Profile](#motion-profile)
@@ -326,6 +331,39 @@ The mode names in the [Specifications](#specifications) are combinations of [Goa
 | Current-based Position Control Mode | 1 Position | 0 CURRENT |
 | Current Control Mode | 2 Torque | 0 CURRENT |
 | PWM Control Mode (Voltage Control Mode) | 2 Torque | 1 PWM |
+
+## How to Assemble
+
+**Will be updated later.**
+
+## Quick Start
+
+### Prerequisites
+
+| Item | Description |
+| ---- | ----------- |
+| Actuator | MD-300-150 module (3 servos) |
+| Power | 9.0 ~ 12.6 [V] (**Recommended: 11.1 [V]**), for example a 3S Li-ion battery or a 12 [V] adapter |
+| Host | Mini Pupper ESP32 board (MangDang MP4 ESP32 CORE), or any SPI master with 3.3 [V] logic |
+| Cable | 6-pin SPI cable, see [Connector Information](#connector-information) |
+
+### Compatible Software with MANGDANG
+
+| Software | Description |
+| -------- | ----------- |
+| [Servo SDK](../../software/servo_sdk/README.md) | ESP32 library (ESP-IDF) for moving the servos and reading their feedback |
+| [Servo Studio](../../software/servo_studio/README.md) | Web tool on the robot: settings, calibration and live graphs, nothing to install |
+
+### First Steps
+
+> [!WARNING]
+> Remove the horns or legs, or keep the robot on a stand, before the first power-on. A servo that is set wrong can move suddenly.
+
+1. With the power **off**, plug the module into a connector of the host board. On the Mini Pupper, CN4 = servo ID 1 ~ 3, CN5 = 4 ~ 6, CN3 = 7 ~ 9, CN6 = 10 ~ 12 (see [Servo SDK, Hardware Setup](../../software/servo_sdk/README.md#hardware-setup)).
+2. Switch the power **on**.
+3. Open [Servo Studio](../../software/servo_studio/README.md#open-servo-studio) and turn on **Connect**. The 3 servos of the module appear with their position, current and temperature.
+4. Check the settings against the [Control Table of EEPROM Area](#control-table-of-eeprom-area), for example Position P Gain(5) = 80.
+5. To move the servos from your own program, start with the [Servo SDK Quick Start](../../software/servo_sdk/README.md#quick-start).
 
 ## Connector Information
 
