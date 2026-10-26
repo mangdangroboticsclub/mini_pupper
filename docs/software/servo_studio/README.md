@@ -1,6 +1,6 @@
 # Servo Studio
 
-Servo Studio is part of the web app the robot serves itself. With it you can read and change the settings of each [MD-300-150](../../actuator/MD-300-150/README.md) servo, calibrate its position sensor and watch it live. Nothing to install: any phone or computer with a browser works.
+Servo Studio is part of the web app the robot serves itself. With it you can read and change the settings of each [MD-300-150](../../acurator/MD-300-150/README.md) servo, calibrate its position sensor and watch it live. Nothing to install: any phone or computer with a browser works.
 
 > [!NOTE]
 > This page describes Servo Studio of the [minipupper_4_mcu](https://github.com/mangdangroboticsclub/minipupper_4_mcu) firmware for actuator **firmware 0.0.9**. The page is `pwa-claw/src/lib/ServoStudio.svelte`; it uses the [HTTP API](#http-api) below, which calls the [Servo SDK](../servo_sdk/README.md).
@@ -42,7 +42,7 @@ For one servo you see a gauge with its position, its current against the current
 
 ## Settings
 
-The **Settings** tab lists every item of the EEPROM area of the [Control Table](../../actuator/MD-300-150/README.md#control-table) (Addr = Control Table No.) with the value you set and the value the servo reports. Below it, **Live telemetry** shows position, goal, position error, current, current limit and temperature (read-only).
+The **Settings** tab lists every item of the EEPROM area of the [Control Table](../../acurator/MD-300-150/README.md#control-table) (Addr = Control Table No.) with the value you set and the value the servo reports. Below it, **Live telemetry** shows position, goal, position error, current, current limit and temperature (read-only).
 
 Tap an item to edit it: the editor shows the value on the servo, the range and the step. Enter a value, or use **−** / **+** or the slider, and press **Set**.
 
@@ -57,7 +57,7 @@ Presets set the gains of the chosen servo, or of all servos, in one step. You co
 | Default | Shipped gains. Quiet, for walking. |
 | Strong | Stiff and snappy, for flips. Holds harder and draws more current, so the motor runs warmer: switch back to Default for long walks. |
 
-Both presets also set [Control Mode(11)](../../actuator/MD-300-150/README.md#control-mode11) to 0 (CURRENT).
+Both presets also set [Control Mode(11)](../../acurator/MD-300-150/README.md#control-mode11) to 0 (CURRENT).
 
 ### Save to Flash
 
@@ -72,7 +72,7 @@ Press **Save to flash** to keep your settings after power-off. The number on the
 
 ## Pot Calibration
 
-Calibration finds [Min/Max Position ADC(1, 2)](../../actuator/MD-300-150/README.md#minmax-position-adc1-2) and [Range Position(3)](../../actuator/MD-300-150/README.md#range-position3) of the position sensor. Press **Calibrate** on a servo.
+Calibration finds [Min/Max Position ADC(1, 2)](../../acurator/MD-300-150/README.md#minmax-position-adc1-2) and [Range Position(3)](../../acurator/MD-300-150/README.md#range-position3) of the position sensor. Press **Calibrate** on a servo.
 
 > [!WARNING]
 > Remove the leg or horn first. Auto sweep spins the shaft round and round in torque mode.
@@ -83,7 +83,7 @@ Calibration finds [Min/Max Position ADC(1, 2)](../../actuator/MD-300-150/README.
    - **Manual:** press **Motor off**, then **Record sweep**, turn the horn by hand through its whole range and press again to stop. The lowest and highest counts are captured for you.
 3. **Result.** Check Stop A (low), Stop B (high), Margin, Min ADC, Max ADC and Range, then press **Write + save to flash** (or **Write to servo only** to try it first).
 
-If the sensor direction changes, Servo Studio flips [Reverse Motor(4)](../../actuator/MD-300-150/README.md#reverse-motor4) with it, so the servo keeps holding instead of running into its end stop.
+If the sensor direction changes, Servo Studio flips [Reverse Motor(4)](../../acurator/MD-300-150/README.md#reverse-motor4) with it, so the servo keeps holding instead of running into its end stop.
 
 ## Graph
 
@@ -91,12 +91,12 @@ Open **Graph** and press **Start** to record live data of the chosen servo. The 
 
 | Trace | Control Table |
 | ----- | ------------- |
-| Position | [Present Position(22)](../../actuator/MD-300-150/README.md#present-position16-22) |
-| Goal | [Setpoint Position(21)](../../actuator/MD-300-150/README.md#setpoint-position21-position-error23) |
-| Error | [Position Error(23)](../../actuator/MD-300-150/README.md#setpoint-position21-position-error23) |
-| Current | [Present Current(26)](../../actuator/MD-300-150/README.md#present-current17-26) |
+| Position | [Present Position(22)](../../acurator/MD-300-150/README.md#present-position16-22) |
+| Goal | [Setpoint Position(21)](../../acurator/MD-300-150/README.md#setpoint-position21-position-error23) |
+| Error | [Position Error(23)](../../acurator/MD-300-150/README.md#setpoint-position21-position-error23) |
+| Current | [Present Current(26)](../../acurator/MD-300-150/README.md#present-current17-26) |
 | Current cap | Current Limit in use(24) |
-| PWM duty ×10 | [Present PWM(28)](../../actuator/MD-300-150/README.md#present-pwm28) |
+| PWM duty ×10 | [Present PWM(28)](../../acurator/MD-300-150/README.md#present-pwm28) |
 
 **Reset** clears the graph, **Capture** saves it as a picture, **Save CSV** stores the recording and **Load CSV** opens one again for comparison.
 

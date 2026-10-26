@@ -1,6 +1,6 @@
 # Servo SDK (ESP32)
 
-The Servo SDK is the C library the minipupper_4_mcu firmware uses to control the 12 [MD-300-150](../../actuator/MD-300-150/README.md) servos of the robot. It runs on ESP-IDF and talks to the four actuator modules (one per leg, 3 servos each) over SPI.
+The Servo SDK is the C library the minipupper_4_mcu firmware uses to control the 12 [MD-300-150](../../acurator/MD-300-150/README.md) servos of the robot. It runs on ESP-IDF and talks to the four actuator modules (one per leg, 3 servos each) over SPI.
 
 > [!NOTE]
 > This page describes the SDK for actuator **firmware 0.0.9**. The SDK is `main/robot/driver_board.c` / `driver_board.h` of the [minipupper_4_mcu](https://github.com/mangdangroboticsclub/minipupper_4_mcu) firmware; the pins are in `main/robot/board_config.h`.
@@ -85,7 +85,7 @@ All functions can be called from several tasks: one internal lock keeps each SPI
 | Function | Description |
 | -------- | ----------- |
 | `bool driver_board_init(void)` | Start the SPI bus and the four modules. Call once at start-up. Returns false if the bus or a module device could not be set up. |
-| `float driver_board_probe_scale(void)` | Ask the modules for [Range Position(3)](../../actuator/MD-300-150/README.md#range-position3) and use it as the full scale. Call once after `driver_board_init()`, before the motion task starts. Returns the scale in use. |
+| `float driver_board_probe_scale(void)` | Ask the modules for [Range Position(3)](../../acurator/MD-300-150/README.md#range-position3) and use it as the full scale. Call once after `driver_board_init()`, before the motion task starts. Returns the scale in use. |
 | `bool driver_board_probe_answered(void)` | True if a module answered the probe, false if the scale is still the default. |
 | `void driver_board_set_scale_dd(float v)` | Full scale of the 0 ~ 1023 position scale, in 0.1 [°] (default 3100 = 310.0 [°], allowed 1000 ~ 4000). Keep it equal to Range Position(3) × 10. |
 | `float driver_board_get_scale_dd(void)` | Read the full scale above. |
@@ -109,9 +109,9 @@ Values come from the last motion or poll call. `ch` = servo ID 1 ~ 12.
 
 | Function | Unit | Control Table |
 | -------- | ---- | ------------- |
-| `uint16_t driver_board_present_position(int ch)` | 0 ~ 1023 | [Present Position(16)](../../actuator/MD-300-150/README.md#present-position16-22) |
-| `int16_t driver_board_present_current(int ch)` | [mA] | [Present Current(17)](../../actuator/MD-300-150/README.md#present-current17-26) |
-| `float driver_board_present_temperature(int ch)` | [°C], `DB_TEMP_INVALID` (−273) if the servo never answered | [Present Temperature(18)](../../actuator/MD-300-150/README.md#present-temperature18-31) |
+| `uint16_t driver_board_present_position(int ch)` | 0 ~ 1023 | [Present Position(16)](../../acurator/MD-300-150/README.md#present-position16-22) |
+| `int16_t driver_board_present_current(int ch)` | [mA] | [Present Current(17)](../../acurator/MD-300-150/README.md#present-current17-26) |
+| `float driver_board_present_temperature(int ch)` | [°C], `DB_TEMP_INVALID` (−273) if the servo never answered | [Present Temperature(18)](../../acurator/MD-300-150/README.md#present-temperature18-31) |
 | `bool driver_board_present_fresh(int ch)` | true / false | Did this servo's module answer the last `driver_board_sync_idle()`? |
 
 ### Configuration
