@@ -57,7 +57,7 @@
 All capabilities stem from our proprietary high-performance, **3-DoF coreless smart servo joints** — the ultimate, versatile building block for modern open-source robotics.
 
 <p align="center">
-  <img width="680" alt="MD-300C-150 Smart Servo Architecture" src="https://github.com/user-attachments/assets/df96e932-38e8-4ce4-802b-bc2e8bd37f65" />
+  <img width="680" alt="MD-300C-150 Smart Servo Architecture" src="./docs/images/MD-300-150.mainSpec.jpg" />
 </p>
 
 ## Open Source Repo Guide
