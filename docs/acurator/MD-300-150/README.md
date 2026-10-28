@@ -39,7 +39,7 @@ Software: [Servo SDK](../../software/servo_sdk/README.md) (ESP32 library) · [Se
 
 | Item                   | Specifications |
 | ---------------------- | -------------- |
-| MCU                    | ARTERY AT32F413, ARM Cortex-M4F (192 [MHz], 32Bit), one MCU for the 3 servos |
+| MCU                    | ARTERY AT32F413, ARM Cortex-M4F (200 [MHz], 32Bit), one MCU for the 3 servos |
 | Position Sensor        | Potentiometer (12Bit ADC, 310 [°]) |
 | Sensor                 | Current, Temperature (NTC) |
 | Motor                  | Coreless x3 |
