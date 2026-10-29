@@ -22,7 +22,7 @@
 <table>
 <tr>
   <td width="100%">
-  <img src="docs/images/backflip.680w.gif" alt="backflip Simulation" width="820">
+  <img src="docs/images/backflip.680w.gif" alt="backflip Simulation" width="900">
   </td>
 </tr>
 </table> 
