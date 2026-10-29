@@ -19,8 +19,15 @@
 ---
 
 ## Capabilities & Frameworks
-
 <table>
+<tr>
+  <td width="100%">
+  <img src="docs/images/backflip.680w.gif" alt="backflip Simulation" width="980">
+  </td>
+</tr>
+</table> 
+
+<table>   
 <tr>
 <td width="50%">
   <img src="docs/images/Mujoko.gif" alt="MuJoCo Simulation" width="410">
