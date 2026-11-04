@@ -12,6 +12,7 @@ The MD-300-150 is a 3-in-1 smart actuator: three coreless-DC servos driven by on
 
 - [Specifications](#specifications)
   - [Dimensions](#dimensions)
+  - [Drawings](#drawings)
 - [Safety Information](#safety-information)
 - [Performance](#performance)
 - [Control Table](#control-table)
@@ -31,7 +32,7 @@ The MD-300-150 is a 3-in-1 smart actuator: three coreless-DC servos driven by on
 - [Connector Information](#connector-information)
 - [Communication (SPI)](#communication-spi)
 - [Motion Profile](#motion-profile)
-- [Drawings](#drawings)
+
 
 Software: [Servo SDK](../../software/servo_sdk/README.md) (ESP32 library) · [Servo Studio](../../software/servo_studio/README.md) (web tool for settings, calibration and live graphs)
 
@@ -65,6 +66,10 @@ Software: [Servo SDK](../../software/servo_sdk/README.md) (ESP32 library) · [Se
 ### Dimensions
 
 ![MD-300-150 dimensions](../../images/MD-300-150.dimension.jpeg)
+
+## Drawings
+
+Please also check the **[MANGDANG Download Center](https://drive.google.com/drive/folders/1AnPtVVnhG7HxUo7Aw38GG5BptCniD_WK?usp=sharing)** for 3D/2D CAD and PDF resources.
 
 ## Safety Information
 
@@ -430,7 +435,3 @@ The reply to a config request comes in the **next** SPI transaction: Status = `0
 ## Motion Profile
 
 The MD-300-150 has no built-in motion profile (no Profile Velocity or Profile Acceleration). When it receives a new [Goal Position(14)](#goal-position14) it drives toward it as hard as its gains and [PWM Limit(9)](#pwm-limit9) allow. For smooth motion, the host sends small position steps; for example the Mini Pupper ESP32 interpolates each move and sends a new goal every 5 [ms].
-
-## Drawings
-
-Please also check the **[MANGDANG Download Center](https://drive.google.com/drive/folders/1AnPtVVnhG7HxUo7Aw38GG5BptCniD_WK?usp=sharing)** for 3D/2D CAD and PDF resources.
