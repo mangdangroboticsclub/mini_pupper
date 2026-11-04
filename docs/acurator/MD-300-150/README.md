@@ -433,6 +433,4 @@ The MD-300-150 has no built-in motion profile (no Profile Velocity or Profile Ac
 
 ## Drawings
 
-![MD-300-150 dimensions](../../images/MD-300-150.dimension.jpeg)
-
-Please also check the **[MANGDANG Download Center](https://drive.google.com/drive/folders/1AnPtVVnhG7HxUo7Aw38GG5BptCniD_WK?usp=sharing)** for software, 3D/2D CAD and other resources.
+Please also check the **[MANGDANG Download Center](https://drive.google.com/drive/folders/1AnPtVVnhG7HxUo7Aw38GG5BptCniD_WK?usp=sharing)** for 3D/2D CAD and PDF resources.
