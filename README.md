@@ -19,13 +19,6 @@
 ---
 
 ## Capabilities & Frameworks
-<table>
-<tr>
-  <td width="100%">
-  <img src="docs/images/backflip.680w.gif" alt="backflip Simulation" width="820">
-  </td>
-</tr>
-</table> 
 
 <table>   
 <tr>
@@ -61,7 +54,14 @@
   <img src="docs/images/mp4.jpg" alt="Mini Pupper 4" width="820">
 </p>
 
-All capabilities stem from our proprietary high-performance, **3-DoF coreless smart servo joints** — the ultimate, versatile building block for modern open-source robotics.
+Fusion 360 CAD model: https://a360.co/3W7VBkx
+<p align="center">
+  <a href="https://a360.co/3W7VBkx">
+  <img src="docs/images/fusionOnline.png" alt="Mini Pupper 4" width="820">
+  </a>
+</p>
+
+All capabilities stem from our proprietary high-performance, **3-DoF coreless smart actuator: MD-300-150** — the ultimate, versatile building block for modern open-source robotics.For the detailed information, please refer to the MD-300-150 specification.
 
 <p align="center">
   <img width="680" alt="MD-300C-150 Smart Servo Architecture" src="./docs/images/MD-300-150.mainSpec.jpg" />
